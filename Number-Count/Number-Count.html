@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      margin-left: 37%;
+      margin-top: 18%;
+      display: flex;
+      position: absolute;
+    }
+    #count-number{
+      transform: translate(-1.4cm , 0.3cm);
+      font-size: 70px;
+      height: 20px;
+      width: 80px;
+    }
+    #number{
+      transform: translate(1.8cm, 0cm);
+      font-family:Arial, Helvetica, sans-serif;
+      text-shadow: 20px;
+      position: relative;
+      color: rgb(113, 12, 129);
+    }
+    #plus{
+      background-color: red;
+    }
+    #minus{
+      background-color: green;
+    }
+  .buttons{
+     height: 40px;
+     width: 175px;
+     color: aliceblue;
+     margin-top: 180px;
+     margin-left: 20px;
+     font-size: 30px;
+     position: relative;
+     border-radius: 20px;
+     transform: translate(-8.5cm, 0cm);
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <div id="app">
+    <countform/>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      let app = Vue.createApp({})
+      app.component('countform',{
+        template:
+        `<h1 class="count" id="number">NumberCount</h1>
+          <h3 class="count" id='count-number'>{{number}}</h3>
+            <input type="button" value="+" class="buttons" id="plus" @click="Addition"/>
+            <input type="button"  value="-"class="buttons" id="minus" @click="Subtraction"/>
+            `,
+
+        data(){
+          return{
+            number: 0
+          }
+        },
+
+        methods: {
+          Addition(){
+               this.number = this.number + 1
+          },
+          Subtraction(){
+               this.number = this.number - 1
+          }
+        }
+      })
+      app.mount('#app')
+    </script>
+  </div>
+</body>
+</html>
